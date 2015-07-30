@@ -3,8 +3,8 @@ public class Rectangle extends Shape {
 
 	private int width;
 	private int height;
-	private int y=this.getY();	
-	private int x=this.getX();
+	private int y = this.getY();
+	private int x = this.getX();
 
 	public Rectangle(int width, int height) {
 		this.width = width;
@@ -34,20 +34,16 @@ public class Rectangle extends Shape {
 	}
 
 	public String toString() {
+		// vytvori objekt line, pomocou ktoreho sa vykresli dany obrazec
+		Line l = new Line(this.x, 0, this.getFill(), this.width, false);
 		String rectangle = "";
-		//odriadkuje pomocou zadanej pozicie y
-		for (int i=0;i<y;i++){
-			System.out.print("\n");
-		}
-		//vypise medzery + posunie vpravo podla zadanej premennej x
-		for (int a = 0; a < height; a++) {
-			for (int j=0;j<x;j++){
-				rectangle += " ";
-			}
-			for (int b = 0; b < width; b++) {				
-				rectangle += this.getFill();
-			}
+		// odriadkuje pomocou zadanej pozicie y
+		for (int i = 0; i < y; i++) {
 			rectangle += "\n";
+		}
+		// vypise medzery + posunie vpravo podla zadanej premennej x
+		for (int a = 0; a < height; a++) {
+			rectangle += l + "\n";
 		}
 		return rectangle;
 	}
